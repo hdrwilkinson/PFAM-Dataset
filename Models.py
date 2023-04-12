@@ -16,7 +16,7 @@ class FullyConnected(torch.nn.Module):
             dropout (int):    dropout rate for all applicable layers.
             layers (int):     number of layers in the middle of model.
         '''
-        super(FullyConnected, self).__init__() 
+        super(FullyConnected, self).__init__()
         self.linear1 = torch.nn.Linear(input_dim, hidden_dim)
         self.linear2 = torch.nn.Linear(hidden_dim, hidden_dim)
         self.linear3 = torch.nn.Linear(hidden_dim, output_dim)
@@ -40,13 +40,12 @@ class RNN(nn.Module):
                 ):
         '''
         Args:
-            vocab_len (int):  dize of the vocabulary.
-            hidden_dim (int): hidden dimension size.
-            output_dim (int): output vector size (number of classes).
-            embed_size (int): size of the embedding.
-            dropout (int):    dropout rate for all applicable layers.
-            num_layers (int): number of layers in the middle of model.
-            device):          the device to put the hidden tensor on.
+            vocab_len (int):  dize of the vocabulary
+            hidden_dim (int): hidden dimension size
+            output_dim (int): output vector size (number of classes)
+            dropout (int):    dropout rate for all applicable layers
+            num_layers (int): number of layers in the middle of model
+            device):          the device to put the hidden tensor on
         '''
         super(RNN, self).__init__()
         self.num_layers = num_layers
@@ -79,13 +78,13 @@ class RNNEmbed(nn.Module):
                 ):
         '''
         Args:
-            vocab_len (int):  dize of the vocabulary.
-            hidden_dim (int): hidden dimension size.
-            output_dim (int): output vector size (number of classes).
-            embed_size (int): size of the embedding.
-            dropout (int):    dropout rate for all applicable layers.
-            num_layers (int): number of layers in the middle of model.
-            device):          the device to put the hidden tensor on.
+            vocab_len (int):  dize of the vocabulary
+            hidden_dim (int): hidden dimension size
+            output_dim (int): output vector size (number of classes)
+            embed_size (int): size of the embedding
+            dropout (int):    dropout rate for all applicable layers
+            num_layers (int): number of layers in the middle of model
+            device:           the device to put the hidden tensor on
         '''
         super(RNNEmbed, self).__init__()
         self.num_layers = num_layers
@@ -118,13 +117,13 @@ class LSTM(nn.Module):
                 ):
         '''
         Args:
-            vocab_len (int):  dize of the vocabulary.
-            hidden_dim (int): hidden dimension size.
-            output_dim (int): output vector size (number of classes).
-            embed_size (int): size of the embedding.
-            dropout (int):    dropout rate for all applicable layers.
-            num_layers (int): number of layers in the middle of model.
-            device):          the device to put the hidden tensor on.
+            vocab_len (int):  dize of the vocabulary
+            hidden_dim (int): hidden dimension size
+            output_dim (int): output vector size (number of classes)
+            embed_size (int): size of the embedding
+            dropout (int):    dropout rate for all applicable layers
+            num_layers (int): number of layers in the middle of model
+            device:           the device to put the hidden tensor on
         '''
         super(LSTM, self).__init__()
         self.num_layers = num_layers
@@ -158,13 +157,13 @@ class BiLSTM(nn.Module):
                 ):
         '''
         Args:
-            vocab_len (int):  dize of the vocabulary.
-            hidden_dim (int): hidden dimension size.
-            output_dim (int): output vector size (number of classes).
-            embed_size (int): size of the embedding.
-            dropout (int):    dropout rate for all applicable layers.
-            num_layers (int): number of layers in the middle of model.
-            device):          the device to put the hidden tensor on.
+            vocab_len (int):  dize of the vocabulary
+            hidden_dim (int): hidden dimension size
+            output_dim (int): output vector size (number of classes)
+            embed_size (int): size of the embedding
+            dropout (int):    dropout rate for all applicable layers
+            num_layers (int): number of layers in the middle of model
+            device:           the device to put the hidden tensor on
         '''
         super(BiLSTM, self).__init__()
         self.num_layers = num_layers
@@ -218,9 +217,8 @@ class Transformer(nn.Module):
     ''' Transformer Encoder with Classification Head'''
     def __init__(
         self,
-        vocab_len: int, embed_size: int,
+        dropout: int , vocab_len: int, embed_size: int,
         hidden_dim: int, output_dim: int, feed_forward_dim: int,
-        dropout_pos: int, dropout_transformer: int, dropout_class: int, 
         num_heads: int, num_layers: int,
     ):
 
@@ -232,7 +230,7 @@ class Transformer(nn.Module):
 
         self.pos_encoder = PositionalEncoding(
             d_model=self.d_model,
-            dropout=dropout_pos,
+            dropout=dropout,
             hidden_dim=hidden_dim,
         )
 
@@ -240,7 +238,7 @@ class Transformer(nn.Module):
             d_model=self.d_model,
             nhead=num_heads,
             dim_feedforward=feed_forward_dim,
-            dropout=dropout_transformer,
+            dropout=dropout,
         )
         self.transformer_encoder = nn.TransformerEncoder(
             encoder_layer,
