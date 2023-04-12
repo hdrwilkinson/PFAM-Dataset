@@ -8,7 +8,6 @@ from copy import deepcopy
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torchsummary import summary
 from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
 from torch.utils.tensorboard import SummaryWriter
 from tensorflow.keras.preprocessing.sequence import pad_sequences as pad
