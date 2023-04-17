@@ -11,17 +11,15 @@ pip install -r requirements.txt
 ## Files
 The repository contains the following files:
 
-models.py: This file contains the definition of different neural network models used in the experiments, including Fully-Connected Feed-Forward Network, Recurrent Neural Network (RNN), RNN with embedding, Long Short-Term Memory (LSTM), Bi-Directional LSTM, and Transformer (encoder only).
+- models.py: This file contains the definition of different neural network models used in the experiments, including Fully-Connected Feed-Forward Network, Recurrent Neural Network (RNN), RNN with embedding, Long Short-Term Memory (LSTM), Bi-Directional LSTM, and Transformer (encoder only).
 
-operations.py: This file contains all the functions and classes required for the experiments, including data loading, preprocessing, oversampling, hyperparameter tuning, and performance evaluation.
+- operations.py: This file contains all the functions and classes required for the experiments, including data loading, preprocessing, oversampling, hyperparameter tuning, and performance evaluation.
 
-data_analysis.ipynb: This file contains the initial exploratory analysis of the PFAM dataset, including data visualization and summary statistics.
+- data_analysis.ipynb: This file contains the initial exploratory analysis of the PFAM dataset, including data visualization and summary statistics.
 
-architecture_experiment.ipynb: This file contains the code and results of the first experiment, which investigates the effectiveness of different neural network architectures for protein family classification.
+- architecture_experiment.ipynb: This file contains the code and results of the first experiment, which investigates the effectiveness of different neural network architectures for protein family classification.
 
-oversampling_experiment.ipynb: This file contains the code and results of the second experiment, which explores the impact of oversampling strategies on addressing the challenges posed by imbalanced class distributions in the dataset.
-
-requirements.txt: This file contains a list of required packages for running the code.
+- oversampling_experiment.ipynb: This file contains the code and results of the second experiment, which explores the impact of oversampling strategies on addressing the challenges posed by imbalanced class distributions in the dataset.
 
 ## Usage
 To reproduce the experiments, please follow the steps outlined in the Jupyter notebooks. In general, the workflow involves:
